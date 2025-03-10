@@ -1,0 +1,14 @@
+Javoblar:
+
+1. Javascriptda ma'lumot turlari ikki turga bo'linadi. Bular primitive va non-primitive ma'lumot turlari.
+
+    Primitive datatypes:                Non-Primitive datatypes:
+    -String                             -Object {}
+    -Number                             -Array []
+    -Boolean
+    -undefined
+    -null
+    -BigInt
+    -Symbol
+
+2. 
