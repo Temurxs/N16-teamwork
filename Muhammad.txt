@@ -1,0 +1,404 @@
+JavaScript datatype/////////////////////////////////////////////////////////////////////////////////
+JavaScriptda ayrim manbalarda 8 ta, ayrimlarida esa 9 ta ma'lumot turi bor deyiladi. Aslida, 7 ta primitive va 2 ta non-primitive ma'lumot turi mavjud.
+
+Primitive ma'lumot turlari (7 ta):
+String – matnlar bilan ishlovchi.
+Number – raqamlar, ya’ni sonlar bilan ishlovchi.
+Boolean – mantiqiy qiymat: ha yoki yo‘q (true/false).
+BigInt – katta raqamlar bilan ishlovchi, ya’ni 2^53 dan katta sonlar uchun ishlaydi. "Number ham sonlar bilan ishlaydi-ku?" deyish mumkin, lekin agar bu kabi katta sonlarni number sifatida saqlasak, konsolda xatoliklar kelib chiqadi.
+Symbol – turli belgilar bilan ishlovchi, ya’ni qandaydir id lar sifatida ishlatiladi.
+Null – dasturchi tomonidan "0" ga tenglash maqsadida berilgan qiymat.
+Undefined – qiymat hali berilmagan o‘zgaruvchi.
+let a;
+console.log(a); // undefined
+
+Non-primitive ma'lumot turlari (2 ta):
+Object – ko‘plab qiymatlarni o‘zida saqlovchi, kalit-qiymat sifatida ma'lumotlarni saqlovchi datatype.
+Array – ma'lumotlarni faqatgina [1, 2, 3, ...] ko‘rinishida saqlaydi.
+Primitive va Non-primitive farqi
+Primitive datatype'lar yagona qiymat saqlay oladi, non-primitive esa ko‘plab qiymatlarni saqlaydi.
+var a = 10; 
+var b = a; 
+a = 11; 
+console.log(a, b); // 11, 10
+
+Bu yerda a qiymati o‘zgaradi, lekin b o‘zgarmaydi.
+Non-primitive da esa reference orqali ishlaydi:
+
+let obj1 = { value: 10 };
+let obj2 = obj1;
+obj1.value = 20;
+console.log(obj1.value, obj2.value); // 20, 20
+Bu holatda obj1 va obj2 bitta manzilga ishora qiladi, shuning uchun obj1 o‘zgarishi obj2 ga ham ta’sir qiladi.
+
+Null va Undefined farqi
+null – dasturchi tomonidan berilgan bo‘sh qiymat.
+undefined – topilmagan qiymat.
+var a = null;
+console.log(typeof a); // "object"
+
+var b;
+console.log(typeof b); // "undefined"
+
+Ikkinchi farqi:
+typeof null → "object" (ammo u non-primitive ma'lumot turiga kirmaydi).
+typeof undefined → "undefined".
+
+2. JavaScriptda qanday qilib o'zgaruvchi yaratish mumkin?////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+JavaScriptda o‘zgaruvchi yaratish uchun var, let va const kalit so‘zlari ishlatiladi.
+
+var – "variable" (o‘zgaruvchi) so‘zidan olingan.
+let – "let" (ruxsat berish) so‘zidan olingan.
+const – "constant" (o‘zgarmas) so‘zidan olingan.
+var, let va const o‘rtasidagi 4 ta asosiy farq
+
+faqat 1 xil nomli 2 va undan ortiq o'zgaruvchilarni faqat var orqali chiqarsa boladi.
+
+1️ Scope (qamrov) degan ma'noni anglatadi.
+var – function scope (faqat funksiya ichida cheklangan).
+let va const – block scope ({} qavslar ichida cheklangan)
+
+function test() {
+    if (true) {
+        var a = 10;
+        let b = 20;
+        const c = 30;
+    }
+    console.log(a);
+    console.log(b);
+    console.log(c);
+test();
+var ishlaydi natija 10 chiqadi
+ReferenceError: b va c is not defined deb yozib chiqadi.
+var blok ichida ham ishlaydi, let va const esa faqat blok ichida mavjud bo‘ladi.
+
+Hoisting (ko‘tarilish)
+var – hoisting uchraydi, lekin undefined qiymati bilan ishlaydi.
+let va const – hoisting qilinadi, lekin Temporal Dead Zone (TDZ) sababli ishlamaydi.
+
+console.log(x); // undefined hoisting bor qiymat yoq
+var x = 5;
+
+console.log(y); // ReferenceError hoisting bor, lekin ishlatilmaydi
+let y = 10;
+
+console.log(z); // ReferenceError hoisting bor, lekin ishlatilmaydi
+const z = 15;
+var e'lon qilingan bo‘lsa ham, dastur hoisting tufayli undefined qiymat oladi. let va const esa Temporal Dead Zone (vaqtinchalik yo‘q hudud) tufayli xatolik chiqaradi.
+3️ O‘zgaruvchi qiymatini o‘zgartirish
+
+var – qiymatni qayta o‘zgartirish va qayta e’lon qilish mumkin.
+let – qiymatni o‘zgartirish mumkin, lekin qayta e’lon qilib bo‘lmaydi.
+const – qiymatni ham o‘zgartirish, ham qayta e’lon qilish mumkin emas
+const ning qiymatini o‘zgartirib bo‘lmaydi.
+
+3. While va do while ortasida farq//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+biri erkakga ikkinchisi ayolga o'xshaydi while bolsa shatni tekshirib kiyin ishlydi do while esa oldin vazifani qilib bolib kiyin shartni tekshiradi.
+let i = 1;
+while (i <= 5) {
+    console.log(i); // 1, 2, 3, 4, 5
+    i++;
+}  // whilega
+
+let j = 1;
+do {
+    console.log(j); // 1, 2, 3, 4, 5
+    j++;
+} while (j <= 5);
+do whilega bu.
+
+ 4 Objekt metodlar//////////////////////////////////////////////////////////////////////////////////////////
+1 Object.keys(obj)
+Obyektning kalitlarini (key'larini) ro‘yxat qilib beradi. natija arrayda chiqadi:   [..., ..., ...] 
+2 Object.values(obj)
+Obyektning qiymatlarini ro‘yxat qilib beradi.natijani arrayga solib beradi:      [..., ..., ...]
+3 Object.entries(obj)
+Kalit va qiymatlarni juftlik qilib chiqaradi. natijani arrayni ichida array qilib chiqaradi: [["ism", "Ali"], ["yosh", 5], ["rang", "ko‘k"]]
+4 Object.assign(obj1, obj2)
+Ikki obyektni birlashtiradi.
+let qoshimcha = { bo‘yi: "110 sm" };
+let yangiBola = Object.assign(bola, qoshimcha);
+console.log(yangiBola);
+natija :{ ism: "Ali", yosh: 5, rang: "ko‘k", bo‘yi: "110 sm" }
+5  Object.freeze(obj)
+Obyektni muzlatadi – endi hech narsa o‘zgartirib bo‘lmaydi.
+let mevalar = ["olma", "anor"];  shuni olsak array massivni :
+1 push() – Oxiriga qo‘shadi
+let mevalar = ["olma", "anor"];
+mevalar.push("banan"); 
+console.log(mevalar); 
+// ["olma", "anor", "banan"]
+2 pop() – Oxiridan olib tashlaydi
+mevalar.pop();
+console.log(mevalar); 
+// ["olma", "anor"]
+3 shift() – Boshidan olib tashlaydi
+mevalar.shift();
+console.log(mevalar); 
+// ["anor"]
+4 unshift() – Boshiga qo‘shadi
+mevalar.unshift("shaftoli");
+console.log(mevalar); 
+// ["shaftoli", "anor"]
+5 forEach() – Har bir elementni ko‘rib chiqadi
+mevalar.forEach(function(meva) {
+    console.log(meva); 
+});
+// "shaftoli", "anor"
+6 map() – Har bir elementni o‘zgartirib, yangi array qaytaradi
+let uzunliklar = mevalar.map(meva => meva.length);
+console.log(uzunliklar); 
+// [7, 4] (shaftoli – 7 ta harf, anor – 4 ta harf)
+7 filter() – Shartga mos kelganlarini ajratib oladi
+let uzunMevalar = mevalar.filter(meva => meva.length > 5);
+console.log(uzunMevalar);
+// ["shaftoli"]
+
+Funksiya turlari ////////////////////////////////////////////////////////////////////////////////////////////////
+Tasavvur qil, sening shirinlik tayyorlovchi sehrli quting bor. Har safar unga shakar, un, va suv solib tugmasini bossang, u shirin pechenye tayyorlab beradi.
+
+Funksiya ham shunday! JavaScript-da funksiya bu biror ishni bajaruvchi quti. Biz unga ma’lum narsalarni beramiz (masalan, sonlar), u esa natija qaytaradi.  
+Funksiya qanday ishlaydi  
+function qoshish(a, b) { 
+    return a + b; 
+}
+console.log(qoshish(2, 3)); // 5
+
+qoshish – bu bizning sehrli qutimiz 
+(a, b) – unga beradigan narsalarimiz  
+return – natijani chiqaradi  
+Funksiya turlari
+
+Oddiy funksiya (Function Declaration)  
+Bu eng oddiy va eng ko‘p ishlatiladigan funksiya turi.  
+
+function salomBer() {
+    console.log("Salom, do‘stim!");
+}
+salomBer();
+
+Funksiya ifodasi (Function Expression)  
+Funksiya o‘zgaruvchiga saqlanadi.  
+let salom = function() {
+    console.log("Salom, do‘stim!");
+};
+salom();
+
+O‘q funksiya (Arrow Function)
+Bu qisqaroq yoziladigan zamonaviy funksiya turi.  
+
+let salom = () => console.log("Salom, do‘stim!");
+salom();
+7 Pure va Impure funksiya/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Pure (Toza) funksiya – Har doim bir xil natija chiqaradi
+Faraz qil, sen oshpazga un va suv bersang, u har doim xuddi shunday non pishiradi. Undan necha marta so‘rasang ham natija o‘zgarmaydi
+
+function qoshish(a, b) {
+    return a + b;
+}
+console.log(qoshish(2, 3));
+console.log(qoshish(2, 3));
+faqat 5 chiqadi
+ Impure (Iflos) funksiya – Har safar turli natija chiqarishi mumkin
+Endi boshqa oshpazga un va suv bersang, u ba’zida non, ba’zida pechenye, ba’zida esa boshqa narsa tayyorlaydi. Natija har safar har xil bo‘lishi mumkin.
+
+let son = 5;
+
+function qoshishImpure(a) {
+    return a + son;
+}
+
+console.log(qoshishImpure(2));
+son = 10;
+console.log(qoshishImpure(2));
+ birinchi 7 ikkinchi martta esa 12
+8 string metod /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+1️ length – Matn uzunligini topadi
+2️ toUpperCase() – Hammasini katta harfga o‘giradi
+3️ toLowerCase() – Hammasini kichik harfga o‘giradi
+4️ trim() – Boshida va oxiridagi bo‘sh joylarni olib tashlaydi
+5️ slice() – Matnning bir qismini kesib oladi
+6️ replace() – Bir so‘zni boshqasiga almashtiradi
+7️ includes() – Matnda so‘z bor yoki yo‘qligini tekshiradi
+8️ split() – Matnni bo‘laklarga ajratadi
+
+9 call, apply, bind – bu nima?/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+siz, tasavvur qiling, ssiz robotingni chaqiryapsiz va unga biror ish qilishni buyuryapsiz. Ba’zida hoziroq bajarish kerak, ba’zida
+ma’lumotlarni qo‘shib bajarish kerak, ba’zida esa keyinroq bajarishni hohlaysiz. call, apply va bind xuddi shunaqa
+ishlaydi!
+1 call() – Funksiyani darhol chaqiradi va argumentlarni vergul bilan beradi
+bunda natija string korinishida chiqadi.
+2️ apply() – Funksiyani darhol chaqiradi, lekin argumentlarni array ichida beradi
+bunda natija array ichida beriladi yani array korinishida.
+3️ bind() – Funksiyani keyin bajarish uchun bog‘lab qo‘yadi
+bunda funksiya ichida yoziladi va bizga kkli vaqtda ishlatamiz.
+
+10. Map va Object o'rtasida qanday farq bor?//////////////////////////////////////////////////////////////////////
+Map va Object o‘rtasidagi farq
+
+Tasavvur qil, Object – oddiy daftar, Map esa maxsus yozuv kitobi. Ikkalasi ham ma’lumot saqlash uchun ishlatiladi, lekin bir-biridan farq qiladi.
+1 Object – Oddiy daftar
+Object – ichiga kalit-qiymat juftliklari yozish mumkin bo‘lgan oddiy daftar. Bunda kalitlar faqat matn (string) yoki maxsus symbol bo‘lishi mumkin.
+let odam = {
+    ism: "Ali",
+    yosh: 25
+};
+console.log(odam.ism); // "Ali"
+
+2️ Map – Maxsus yozuv kitobi
+Map esa ma’lumotlarni tartibli saqlash uchun qulayroq. Unda istalgan turdagi kalitlardan foydalanish mumkin: raqam, funksiya, hatto boshqa object.
+let odamMap = new Map();
+odamMap.set("ism", "Ali");
+odamMap.set(25, "Yosh");
+console.log(odamMap.get("ism")); // "Ali"
+
+Object – Oddiy kalit-qiymat saqlash uchun ishlatiladi.
+Map – Katta ma’lumotlar, tartibni saqlash va har xil turdagi kalitlar kerak bo‘lsa ishlatiladi.
+
+11 Obyektga yo‘naltirilgan dasturlash (OOP) nima? /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Obyektga yo‘naltirilgan dasturlash (OOP – Object-Oriented Programming) bu dasturlarni obyektlar asosida qurish usuli.
+Obyektlar – bu o‘ziga xos xususiyatlar (property) va bajaradigan amallar (method) ga ega bo‘lgan obyektlar.
+
+let mashina = {
+    rang: "qizil",
+    tezlik: 100,
+    yurish: function() {
+        console.log("Mashina harakatlanyapti");
+    }
+};
+shununaqa  obyekt bolsin. 
+1 Klass (Class)
+class Mashina {
+    constructor(rang, tezlik) {
+        this.rang = rang;
+        this.tezlik = tezlik;
+    }
+    yurish() {
+        console.log("Mashina harakatlanyapti");
+    }
+}
+
+let bmw = new Mashina("qora", 200);
+console.log(bmw.rang); // "qora"
+2 Inkapsulyatsiya (Encapsulation
+3 Meros olish (Inheritance)
+4  Polimorfizm (Polymorphism)
+
+12. 00P ning har bir tamoyilini tushuntirib bering.////////////////////////////////////////////////////////
+1️ Inkapsulyatsiya (Encapsulation) – Ma’lumotlarni yashirish va himoya qilish
+Tasavvur qil, telefoningning ichki tizimini ochib o‘zgartira olmaysan. Faqat kerakli tugmalar va ilovalar orqali
+foydalanasan. Dasturda ham obyekt ichidagi ba’zi ma’lumotlarni yashirib, faqat kerakli qismlarini ochish shunday 
+bo‘ladi.
+
+2️ Meros olish (Inheritance) – Eski obyekt xususiyatlarini yangi obyektga berish
+Tasavvur qil, ota-bobongdan ba’zi xususiyatlarni meros olgansan. Dasturda ham bitta klassdan yangi klass yaratib,
+eski xususiyatlarini olish mumkin.
+
+3️ Polimorfizm (Polymorphism) – Bitta narsa turlicha harakat qiladi
+Tasavvur qil, har bir hayvonning ovozi har xil. It vovullaydi, mushuk miyovlaydi. Dasturda esa bir xil metod har
+xil ishlashi mumkin.
+
+4️ Abstraksiya (Abstraction) – Keraksiz tafsilotlarni yashirish
+Tasavvur qil, mashina haydayotganda uning ichki mexanikasini bilishing shart emas, faqat rul va pedallar bilan 
+boshqarasan. Dasturda ham keraksiz tafsilotlarni yashirib, faqat kerakli qismlarini ochish mumkin.
+
+13 typeof va instanceof farqi
+typeof – Bu ichidagi narsa qanday ekanini aytadi.
+instanceof – Bu qutining o‘zi kimga tegishli ekanini tekshiradi.
+
+console.log(typeof "Salom"); // "string"
+console.log(typeof 42); // "number"
+console.log(typeof true); // "boolean"
+
+class Mashina {}
+let bmw = new Mashina();
+console.log(bmw instanceof Mashina); // true
+console.log(bmw instanceof Object); // true
+
+typeof → Ichidagi narsaning turi qanday? (string, number, boolean va h.k.)
+instanceof → Quti qaysi oilaga tegishli? (Object, Array, Class va h.k.)
+
+14. Promise nima? /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Tasavvur qil, do‘stingdan kitob so‘rading. U senga “keyin beraman” dedi. Kitob darhol qo‘lingda yo‘q, lekin berilishi
+mumkin yoki berilmasligi ham mumkin.
+
+JavaScriptda Promise xuddi shunday ishlaydi. U biror narsa kelajakda bajarilishini yoki bajarilmasligini bildiradi.
+
+1️ Pending (Kutilmoqda) – Va’da berilgan, lekin natija hali yo‘q.
+2️ Resolved (Bajarildi) – Va’da bajarildi, natija bor.
+3️ Rejected (Rad etildi) – Va’da bajarilmadi, xato bo‘ldi.
+
+15. Promise ning kamida 3ta metodini tushuntirib bering.///////////////////////////////////////////////////////////////////////////////////////////
+
+1️ Promise.all() – Hamma va’dalar bajarilishini kutadi.
+Hamma do‘stlaring birga kelmaguncha kutasan. Agar bittasi kelmasa, hammasi bekor bo‘ladi.
+
+2️ Promise.race() – Kim birinchi keladi, o‘sha g‘olib!
+Do‘stlaringdan kim oldin kelsa, shuni chaqirasan.
+
+3️ Promise.allSettled() – Hamma natijasini ko‘rsat, xato bo‘lsa ham!
+Kimdir kelsa ham, kelmasa ham, baribir hamma natijani ko‘rsat.
+
+16. Event loop nima?/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Tasavvur qil, bitta oshpaz bor va u oshxona boshqarayapti. Oshpazga ko‘plab buyurtmalar keladi. U esa:
+1️ Oddiy ovqatlarni (sodda kodlarni) tez tayyorlaydi.
+2️ Murakkab ovqatlarni (asosiy kod tugamaguncha kutish kerak bo‘lgan kodlarni) keyinroq tayyorlash uchun navbatga qo‘yadi.
+3️ Tugallangan ovqatlarni navbat bilan dasturxonga qo‘yadi.
+Bu jarayon Event Loop deb ataladi.
+
+console.log("1 - Salom!"); // Tez ishlaydi
+setTimeout(() => {
+    console.log("3 - Men kechroq keldim!"); // Kutib turadi
+}, 1000);
+console.log("2 - Dastur ishlayapti..."); // Tez ishlaydi
+natija esa: 
+1 - Salom!
+2 - Dastur ishlayapti...
+(1 soniya o‘tadi)
+3 - Men kechroq keldim!
+17 CRUD/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+CRUD – 4 ta asosiy amal:
+
+1️ C – Create (Yangi ma'lumot qo‘shish)
+2️ R – Read (Ma'lumotni o‘qish)
+3️ U – Update (Ma'lumotni yangilash)
+4️ D – Delete (Ma'lumotni o‘chirish)
+
+
+Fetch va Axios farqi:
+Fetch	
+O‘rnatish shart emas	
+Response JSON qilish kerak (res.json())
+Xatolarni aniq ko‘rsatmaydi	Xatolarni yaxshiroq ko‘rsatadi
+
+Axios
+O‘rnatish kerak (npm install axios)
+Avtomatik JSON qiladi
+Headers qo‘lda qo‘shish kerak	Headers o‘zi qo‘shadi
+
+
+18. DOM nima? Kamida 5ta event turini sanab bering./////////////////////////////////////////////////////////////////////////////
+
+DOM – Veb-sahifa ustidan boshqaruv.
+DOM (Document Object Model) – veb-sahifaning tuzilishini o‘qish, o‘zgartirish va boshqarish imkonini beradigan model. 
+U HTML hujjatini daraxt shaklida tasvirlaydi va biz JavaScript yordamida sahifadagi elementlarni qo‘shish, o‘chirish, 
+o‘zgartirish va hodisalar (event) bilan ishlash imkoniyatiga ega bo‘lamiz.
+
+<p id="matn">Salom!</p>
+<button id="tugma">O‘zgartir</button>
+
+document.getElementById("tugma").addEventListener("click", function() {
+    document.getElementById("matn").innerText = "Assalomu alaykum!";
+});
+
+1️ click – Element bosilganda ishlaydi.
+2️ mouseover – Sichqoncha element ustiga kelganda ishlaydi.
+3️ keydown – Klaviatura tugmasi bosilganda ishlaydi.
+4️ change – Input yoki select qiymati o‘zgarganda ishlaydi.
+5️ submit – Forma jo‘natilganda ishlaydi.
+
+DOM – sahifani o‘qish va boshqarish imkonini beruvchi model.
+Hodisalar – veb-sahifada sodir bo‘ladigan harakatlar.
+JavaScript yordamida DOM bilan ishlash sahifani jonlantirish va interaktiv qilish imkonini beradi.
