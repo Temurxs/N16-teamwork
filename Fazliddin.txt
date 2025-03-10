@@ -1,0 +1,74 @@
+1) Js da 2 xil ma'lumot turlari mavjud : Primitive va Non-Primitive;
+Primitive : string, number, Boolean, null, undifiend, symbol, BigInt
+Primitive va Non-Primitive o'rtasidagi farq shundaki primitive bitta ma'lumotni o'zida saqlay oladi. Non-primitive esa 2 va undan ortiq. Yana bir farqi copying da non-primitive refenrence orqali nusxa olinadi. Ya'ni manzili bilan.
+
+2)Js da 3 xil o'zgaruvchi mavjud : let, const, var. Const o'zgarmas, var orqali bir xil nomli 2 va undan ortiq o'zgaruvchi yasash mumkin, var yana hoisting ga uchraydi, var block scope dan chiqa oladi.
+
+3)While avval shartni tekshiradi qanoatlantirsa bajaradi, do while bir marta natija chiqarib keyin shartni tekshiradi.
+
+4)Object metodlari : assign = bu objectlarni birlashtirib beradi, keys = kalitlarini olib beradi, values - qiymatlarni oladi, enteries - key va value ni alohida array ga solib beradi jufti bilan, freeze - object ga o'zgartirish, o'chirish, qo'shish imkoniyatini bloklaydi.
+
+5)push - oxiridan qo'shadi, pop - oxiridan o'chiradi, unshift - boshidan qo'shadi, shift - boshidan o'chiradi, find - shartni qanoatlantiruvchi birinchisini qaytaradi, filter - qanoatlantiruvchi barchasini array ga solib beradi. forEach - array ichidagi elementlar ustida amallar bajaradi.
+
+6)Funksiya 3 xil : decelaration, expression(anonomys), arrow
+arrow da this ishlamaydi, decelaration da hoisting bo'ladi. expression o'zgaruvchiga tenglashtirib ishlatish mumkin.
+
+7)Pure va Impure function - agar funksiya static bo'lsa - Pure , dinamik bo'lsa - Impure
+
+8)toUppercase - katta harf, 
+toLowercase - kichik harf, 
+length - uzunlik, 
+chartAt - indeksi, 
+charCodeAt - unicode, 
+include - ichida borligi,
+ search - qidiradi, 
+substring - kesib oladi.
+
+9)call, apply, bind - object ni function ga qo'shib beadi
+
+funksiya_nomi.call(object_nomi, "params")
+funksiya_nomi.apply(object_nomi, ["params"])
+funksiya_nomi.bind(object_nomi, "params")()
+
+10)Object: Objectning kalimlari faqat string yoki symbol turida bo'lishi mumkin. 
+Agar siz boshqa turdagi qiymatni kalit sifatida ishlatsangiz, u avtomatik ravishda stringga aylantiriladi.
+Map: Mapda kalitlar har qanday turda bo'lishi mumkin (masalan, object, function, symbol va boshqalar).
+ Map kalitlarining turi to'g'ri saqlanadi.
+Object: Objectlarda kalitlar tartibi kafolatlanmagan. Har doim kalitlar (properties) yangi va eski kalitlar bilan aralashib ketishi mumkin.
+Map: Mapda kalitlar qo'shilgan tartibda saqlanadi. Mapning tartibi aniqlanadi va kalitlar qo'shilgan tartibda ishlatiladi.
+
+11)OOP - bu Obejct Oriented Progromming - obyekt ustiga qurilgan dasturlash unda biz class yordamida object ochamiz
+
+12)OOP da 4 ta tamoyil mavjud : - interherence - me'ros olish bunda biz boshqa class dan extends orqali me'ros olishimiz mumkin ota class dagi keys va metodlar bolasida ham bo'ladi.
+Polymorphysm - bir xil class ning turli xil instance larining bir xil metodlariga murojaat qilinganda turli xil natija qaytishi. instance - class dan yasalgan obyekt ga aytiladi.
+
+Encapsulation - foydalanuvchi shart bo'lmaganlarni narsalarni unga ko'rsatmaslik.
+
+Abstraction - yashirish (#) orqali
+
+13)typeof bu primitive ni ma'lumot turini aniqlash uchun ishlatiladi, instanceof esa object OOP da yasalganmi yoki yasalmaganligini aniqlaydi Boolean qaytaradi.
+
+14)Promise - va'da berish degan ma'noni anglatadi. 3 xil bo'ladi : pending, fulfilled, rejected
+
+15) Promise( (resolve, rejected ) => {})
+.then() -> resolve qabul qiladi
+.catch() -> rejected qabul qiladi
+
+16)Event Loop - Js dagi har bir kodni ishga tushirib beradigan narsa.Call Stack => Web API => Task queue
+
+17)CRUD - CREATE READ UPDATE DELETE
+CREATE - POST
+READ - GET
+UPDATE - PUT
+DELETE - DELETE
+
+fetch ham Promise hisoblanadi, u backend ga so'rov yuborishda ishlatiladi.
+axios fetch ning zamonaviy formati hisoblanadi.
+
+18)DOM - Document Object Model 
+HTML skriptlar (masalan, JavaScript) orqali boshqarish imkonini beruvchi obyekt modelidir. DOM hujjatni daraxt shaklida (tree structure) tashkil qiladi, bunda har bir HTML teg (element) bir obyekt sifatida ko'rib chiqiladi.
+
+events:
+click - bosilganda
+submit - forma yuborilganda
+load - sahifa to'liq yuklanganda
