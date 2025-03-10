@@ -1,0 +1,113 @@
+1. Data types - primitive and non-primitive
+
+Primitive - String, Number, Boolean, BigInt, Symbol, Undefined, Null
+Non-primitve - Object , (Array)
+
+2.  Variables : let, const, var
+Differences:
+1. var - new variable can be created with the same name
+2. the values of var and let can be changed 
+3. Hoisting works with only var 
+4.Only var can impact outside a block scope
+
+3.While Loop in Programming:
+The condition is checked before the execution of the loop body.
+
+Do While Loop in Programming:
+The loop body is executed at least once, regardless of the condition.
+After the first execution, the condition is checked.
+
+4.Object.values, 
+object.entries
+Object.keys
+Object.assign
+Object,create
+
+5. Array join()
+Array pop()
+Array push()
+Array length
+Array toString()
+Array at()
+Array shift()
+Array unshift()
+Array delete()
+Array concat()
+
+6.A JavaScript function is a block of code designed to perform a particular task.
+A JavaScript function is executed when "something" invokes it (calls it).
+
+7.Pure functions return the same output if we use the same input parameters. However, impure functions give different outcomes when we pass the same arguments multiple times
+
+
+8.String toUpperCase()
+String toLowerCase()
+String concat()
+String trim()
+String trimStart()
+String trimEnd()
+String padStart()
+String padEnd()
+String repeat()
+String replace()
+
+9.The basic idea behind call/apply/bind is the same: explicitly set function parameters including this
+
+10. Use Object when:
+You’re dealing with static, simple structured data.
+You need JSON-like structures.
+Use Map when:
+You need keys that aren’t just strings.
+You care about the insertion order.
+You need high-performance key-value storage.
+You need to frequently add/remove key-value pairs.
+
+11.Object-oriented programming (OOP) is a computer programming model that organizes software design around data, or objects, rather than functions and logic
+
+12. Encapsulation   Abstraction	     Inheritance	      Polymorphism
+
+
+13.Key Differences Between typeof and instanceof
+Purpose:
+typeof: Determines the primitive type of a variable.
+instanceof: Checks if an object is an instance of a specific constructor or class.
+Return Value:
+typeof: Returns a string (e.g., 'number', 'string').
+instanceof: Returns a boolean (true or false).
+Scope of Operation:
+typeof: Works on both primitive values and objects but is less informative with objects.
+instanceof: Works only with objects and checks the prototype chain.
+Identifying Arrays and Functions:
+typeof [] returns 'object', while [] instanceof Array returns true.
+typeof function() {} returns 'function', which is a subtype of 'object'.
+
+
+14.Promise.then() takes two arguments, a callback for success and another for failure.
+
+Both are optional, so you can add a callback for success or failure only.
+
+15. Promise.then,
+    Promise.catch,
+    Promise.all,
+    Promise.catch
+
+
+16.The event loop is a component of the JavaScript engine that manages the execution of code, collecting and processing events, and executing queued sub-tasks
+
+17. CRUD 
+  Create -> post
+  Read -> get
+  Update -> put 
+  Delete -> delete
+
+18. The HTML DOM (Document Object Model) is a programming interface that represents the structure of a web page in a way that programming languages like JavaScript can understand and manipulate.
+addEventListener
+"click"
+"dblclick"
+"mousedown"
+"mouseup"
+"mouseenter"
+"mouseleave"
+"mouseover"
+"mouseout"
+"contextmenu"
