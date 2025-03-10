@@ -11,4 +11,13 @@ Javoblar:
     -BigInt
     -Symbol
 
-2. 
+    #String - matn (harflar, so‘zlar) saqlash uchun ishlatiladi.
+    #Number - raqamlarni ifodalash uchun ishlatiladi (butun va kasr sonlarni o'z ichiga oladi).
+    #Boolean - true (rost) yoki false (yolg'on) qiymatini saqlash uchun ishlatiladi.
+    #undefined -o'zgaruvchi e'lon qilingan, lekin unga qiymat berilmagan bo‘lsa, undefined bo'ladi.
+    #null - ma'lum bir o‘zgaruvchining qiymati yo‘qligini aniq ko‘rsatish uchun ishlatiladi.
+    #BigInt - juda katta yoki juda kichik sonlar bilan ishlash uchun ishlatiladi.
+    #Symbol - har bir Symbol o‘ziga xos bo‘lib, unikal identifikator sifatida ishlatiladi.
+
+    #Object - obyekt kalit-qiymat (key-value) juftliklari ko‘rinishida bo‘ladi. U ichida ko'p ma'lumot saqlay oladi.
+    #Array - array bu massiv va u ham obyekt hisoblanadi odatda. U o'z ichida key-value saqlamaydi va u ham ko'p ma'lumotni ichida saqlay oladi
