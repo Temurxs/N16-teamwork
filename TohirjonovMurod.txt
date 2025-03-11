@@ -1,0 +1,205 @@
+--------------------------------------------------------------------------------------------------------------------
+
+### **1. JavaScriptda qanday ma'lumot turlari mavjud?**  
+JavaScriptda **primitive** va **non-primitive** (reference) ma'lumot turlari mavjud.  
+
+#### **1.1. Primitive ma'lumot turlari (Oddiy)**
+Primitive ma'lumotlar **o'zgarmas** (immutable) va to'g'ridan-to'g'ri qiymatni saqlaydi:  
+- **`string`** – `"Hello"` (matn ma'lumoti)  
+- **`number`** – `42`, `3.14` (barcha sonlar, butun va kasr)  
+- **`bigint`** – `BigInt(9007199254740991)` (katta sonlar uchun)  
+- **`boolean`** – `true`, `false` (mantiqiy qiymatlar)  
+- **`undefined`** – `let x;` (o‘zgaruvchi qiymati berilmagan)  
+- **`null`** – `let y = null;` (maqsadli ravishda bo‘sh qiymat)  
+- **`symbol`** – `Symbol('id')` (unikal identifikatorlar uchun)  
+
+#### **1.2. Non-primitive ma'lumot turlari (Murakkab)**
+Bu turdagi ma'lumotlar **reference type** hisoblanadi va ular o'zgaruvchan (mutable):  
+- **`object`** – `{ name: "Ali", age: 20 }`  
+- **`array`** – `[1, 2, 3, 4]`  
+
+#### **1.3. `null` va `undefined` farqi**  
+- **`null`** – aniq qilib qiymat yo‘qligini bildiradi.  
+- **`undefined`** – qiymat hali berilmagan yoki mavjud emas.  
+
+-----------------------------------------------------------------------------------------------------------------
+
+### **2. JavaScriptda qanday qilib o'zgaruvchi yaratish mumkin?**  
+JavaScriptda 3 xil o'zgaruvchi e'lon qilish usuli bor:  
+
+- **`var`** – eskirgan, `function-scoped` va `hoisting` qiladi.  
+- **`let`** – `block-scoped`, `hoisting` qiladi, lekin ishlatishdan oldin xatolik beradi.  
+- **`const`** – `block-scoped`, o'zgarmas (`immutable`).  
+
+```js
+var a = 10;  // Global yoki funksiya doirasida ishlaydi.
+let b = 20;  // Faqat blok doirasida ishlaydi.
+const c = 30; // O‘zgarmas qiymat.
+```
+
+-------------------------------------------------------------------------------------------------------------
+
+### **3. `while` va `do while` o'rtasidagi farq**  
+| Xususiyat  | `while` | `do while` |
+|------------|--------|------------|
+| Shart tekshirilishi | Oldindan | Keyin |
+| Hech bo‘lmaganda bir marta ishlash | Kafolatlanmaydi | Kafolatlanadi |
+
+```js
+let i = 0;
+while (i < 3) {
+    console.log(i);
+    i++;
+}
+
+let j = 0;
+do {
+    console.log(j);
+    j++;
+} while (j < 3);
+```
+
+--------------------------------------------------------------------------------------------------------------
+
+### **4. Qanday object metodlarini bilasiz?**  
+- `Object.keys(obj)` → Kalitlarni qaytaradi.  
+- `Object.values(obj)` → Qiymatlarni qaytaradi.  
+- `Object.entries(obj)` → `[kalit, qiymat]` juftligini array shaklida qaytaradi.  
+- `Object.assign(target, source)` → Obyektlarni birlashtiradi.  
+- `Object.freeze(obj)` → Obyektni muzlatadi (o‘zgartirib bo‘lmaydi).  
+
+```js
+const person = { name: "Ali", age: 25 };
+console.log(Object.keys(person));  // ["name", "age"]
+```
+
+--------------------------------------------------------------------------------------------------------------
+
+### **5. Qanday array metodlarini bilasiz?**  
+- **`push()`** – Element qo‘shadi.  
+- **`pop()`** – Oxirgi elementni olib tashlaydi.  
+- **`shift()`** – Boshidan element olib tashlaydi.  
+- **`unshift()`** – Boshiga element qo‘shadi.  
+- **`map()`** – Yangi massiv yaratadi.  
+- **`filter()`** – Shartga mos elementlarni ajratib oladi.  
+- **`reduce()`** – Massivni bitta qiymatga qisqartiradi.  
+
+```js
+const numbers = [1, 2, 3];
+const doubled = numbers.map(num => num * 2);
+console.log(doubled); // [2, 4, 6]
+```
+
+-------------------------------------------------------------------------------------------------------------
+
+### **6. Funktsiya nima?**  
+Funktsiya – qayta ishlatiladigan kod bloki.  
+
+- **Declaration**  
+  ```js
+  function hello() { console.log("Hello!"); }
+  ```
+- **Expression**  
+  ```js
+  let hello = function() { console.log("Hello!"); };
+  ```
+- **Arrow Function**  
+  ```js
+  let hello = () => console.log("Hello!");
+  ```
+
+--------------------------------------------------------------------------------------------------------------
+
+### **7. Pure va Impure function farqi**  
+- **Pure** → Hech qanday yon ta’sirga ega emas, doim bir xil natija qaytaradi.  
+- **Impure** → Tashqi holatlarga bog‘liq.  
+
+```js
+function pure(a, b) { return a + b; }
+```
+```js
+let x = 10;
+function impure(y) { return x + y; }
+```
+
+--------------------------------------------------------------------------------------------------------------
+
+### **8. Qanday string metodlarini bilasiz?**  
+- **`toUpperCase()`** – `"hello".toUpperCase()` → `"HELLO"`  
+- **`toLowerCase()`** – `"HELLO".toLowerCase()` → `"hello"`  
+- **`trim()`** – `"  hello  ".trim()` → `"hello"`  
+- **`split()`** – `"a,b,c".split(",")` → `["a", "b", "c"]`  
+- **`replace()`** – `"hello".replace("h", "H")` → `"Hello"`  
+
+--------------------------------------------------------------------------------------------------------------
+
+### **9. `call`, `apply`, `bind` nima?**  
+- `call()` → Funksiyani argumentlarini alohida berib chaqiradi.  
+- `apply()` → Argumentlarni array shaklida qabul qiladi.  
+- `bind()` → Yangi funksiya yaratadi.  
+
+```js
+function greet(name) {
+    console.log(`Hello, ${name}`);
+}
+greet.call(null, "Ali");  // "Hello, Ali"
+```
+
+-------------------------------------------------------------------------------------------------------------
+
+### **10. `Map` va `Object` farqi**  
+| Xususiyat  | `Object` | `Map` |
+|------------|--------|------|
+| Kalit turi | Faqat string | Har qanday tur |
+| Iteratsiya | Qo‘llab-quvvatlamaydi | `forEach()` orqali ishlaydi |
+
+---------------------------------------------------------------------------------------------------------------
+
+### **11. OOP nima?**  
+Obyektga yo‘naltirilgan dasturlash (Object-Oriented Programming).  
+
+---------------------------------------------------------------------------------------------------------------
+
+### **12. OOP ning bir tamoyili**  
+**Encapsulation** – obyekt ichki ma'lumotlarini yashirish.  
+
+```js
+class Person {
+    #secret = "Maxfiy";
+    getSecret() { return this.#secret; }
+}
+```
+
+--------------------------------------------------------------------------------------------------------------
+
+### **13. `typeof` va `instanceof` farqi**  
+- `typeof` → Ma'lumot turini qaytaradi.  
+- `instanceof` → Obyekt qaysi classga tegishli ekanligini tekshiradi.  
+
+```js
+console.log(typeof "hello"); // "string"
+console.log([] instanceof Array); // true
+```
+
+-------------------------------------------------------------------------------------------------------------
+
+### **15. `Promise` ning 3ta metodi**  
+- **`then()`** → Muvaffaqiyatli natijani ushlaydi.  
+- **`catch()`** → Xatoni ushlaydi.  
+- **`finally()`** → Har doim bajariladi.  
+
+---------------------------------------------------------------------------------------------------------------
+
+### **16. Event Loop nima?**  
+JS’ning asinxron mexanizmi, `Call Stack` va `Callback Queue` o‘rtasida ishlaydi.  
+
+-------------------------------------------------------------------------------------------------------------
+
+### **17. CRUD nima?**  
+- **Create**, **Read**, **Update**, **Delete** operatsiyalarini bildiradi.  
+
+--------------------------------------------------------------------------------------------------------------
+
+### **18. DOM va 5ta event turi**  
+- DOM – HTML hujjatlarini JS orqali boshqarish.  
+- Eventlar: `click`, `keydown`, `submit`, `mouseover`, `scroll`.  
