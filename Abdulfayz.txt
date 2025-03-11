@@ -1,0 +1,160 @@
+1. JavaScriptda Ma'lumot Turlari
+
+JavaScriptda ma'lumot turlari ikkiga bo'linadi:
+
+Primitiv ma'lumot turlari
+
+string - matnli qiymatlar.
+
+number - sonli qiymatlar.
+
+boolean - true yoki false qiymatlar.
+
+null - bo'sh qiymatni ifodalaydi.
+
+undefined - qiymat hali belgilanmagan.
+
+bigint - katta sonlarni ifodalaydi.
+
+symbol - noyob kalitlarni yaratish uchun ishlatiladi.
+
+Non-primitiv ma'lumot turlari
+
+object - obyektlar (array, function, date, regex va boshqalar).
+
+Null va Undefined o'rtasidagi farq
+
+null - maqsadli ravishda bo‘sh qiymat berilgan.
+
+undefined - o'zgaruvchi e'lon qilingan, lekin qiymati berilmagan.
+
+2. JavaScriptda O'zgaruvchi Yaratish
+
+var, let, const kalit so‘zlari orqali o‘zgaruvchilar e’lon qilinadi.
+
+Farqlari
+
+var - global yoki funksiya skoupga ega.
+
+let - blok skoupga ega, qayta e’lon qilib bo‘lmaydi.
+
+const - blok skoupga ega va qiymati o‘zgartirilmaydi.
+
+Hoisting
+
+var e’lon qilinmagan bo‘lsa ham, undefined qiymat oladi.
+
+let va const hoisting qiladi, ammo ReferenceError yuzaga keladi.
+
+3. While va Do-While O'rtasidagi Farq
+
+while - shart to‘g‘ri bo‘lsa, bajariladi.
+
+do-while - sikl kamida bir marta bajariladi, keyin shart tekshiriladi.
+
+4. Object Metodlari
+
+Object.keys(obj) - obyektning kalitlarini qaytaradi.
+
+Object.values(obj) - obyektning qiymatlarini qaytaradi.
+
+Object.entries(obj) - kalit-qiymat juftliklarini qaytaradi.
+
+Object.assign(target, source) - obyektlarni birlashtirish.
+
+Object.freeze(obj) - obyektni o‘zgarmas qiladi.
+
+5. Array Metodlari
+
+Qo‘shish va olib tashlash: push(), pop(), shift(), unshift().
+
+Transformatsiya: map(), filter(), reduce().
+
+6. Funktsiya Tushunchasi
+
+Deklaratsiya qilingan: function foo() {}
+
+Ifodaviy: const foo = function() {}
+
+Arrow: const foo = () => {}
+
+7. Pure va Impure Funktsiyalar
+
+Pure: Tashqi holatga bog‘liq emas, bir xil kirishga bir xil natija beradi.
+
+Impure: Tashqi holatga bog‘liq va natija har xil bo‘lishi mumkin.
+
+8. String Metodlari
+
+charAt(), concat(), includes(), indexOf().
+
+slice(), split(), toUpperCase(), toLowerCase().
+
+9. Call, Apply, Bind Metodlari
+
+call() - funktsiyani ma’lum kontekst bilan chaqiradi.
+
+apply() - call() ga o‘xshaydi, lekin argumentlarni massiv shaklida qabul qiladi.
+
+bind() - yangi funktsiya yaratib, kontekstni bog‘lab beradi.
+
+10. Map va Object O'rtasidagi Farq
+
+Map - kalit-qiymat juftliklarini saqlaydi, har qanday turdagi kalit bo‘lishi mumkin.
+
+Object - faqat string yoki symbol kalitlarni qabul qiladi.
+
+11. OOP Tushunchasi
+
+Encapsulation - ma’lumotlarni yashirish.
+
+Inheritance - ob’ektlarning xususiyatlarini boshqa obyektga o‘tkazish.
+
+Polymorphism - bir metodni har xil ko‘rinishda ishlatish.
+
+Abstraction - murakkab tizimlarni soddalashtirish.
+
+12. typeof va instanceof O'rtasidagi Farq
+
+typeof - primitiv ma’lumot turlarini aniqlaydi.
+
+instanceof - obyektning qaysi klassga tegishli ekanini aniqlaydi.
+
+13. Promise Tushunchasi
+
+Asinxron operatsiyalarni boshqarish.
+
+Holatlari: pending, fulfilled, rejected.
+
+14. Promise Metodlari
+
+Promise.all() - barcha promislarni kutadi.
+
+Promise.race() - birinchi bajarilgan promis natijasini qaytaradi.
+
+Promise.any() - birinchi muvaffaqiyatli bajarilgan promis natijasini qaytaradi.
+
+15. Event Loop Tushunchasi
+
+Call Stack - bajarilayotgan kodlar.
+
+Task Queue - asinxron vazifalar navbati.
+
+Microtask Queue - Promise.then() va MutationObserver.
+
+16. CRUD Tushunchasi
+
+C - Create (yaratish)
+
+R - Read (o‘qish)
+
+U - Update (yangilash)
+
+D - Delete (o‘chirish)
+
+17. DOM Tushunchasi
+
+HTML hujjatini obyekt sifatida ifodalovchi model.
+
+DOM Eventlari: click, keydown, keyup, mouseover, DOMContentLoaded.
+
