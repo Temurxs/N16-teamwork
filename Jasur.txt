@@ -67,4 +67,47 @@
             1) Object da key faqat string va symbol oladi --- map da num, obj, function, array va yana boshqa turdagi malumot turlarin oladi.
             2) Object odatda Map dan sekinroq ishlaydi.
 
- 
+11. OOP (Object-Oriented Programming) ---- bu ham bir object faqat yangilangan versiasi, yani class larni ishlatamiz
+    OOP ni ustinlik tomonlari dan biri biz undan inheritance olsak boladi.
+
+12. OOP da 4 ta tamoyillar bor:
+        1) Encapsulation (Inkapsulyatsiya) ---Ma’lumotlarni yashirish va faqat kerakli joylardan foydalanish imkoniyatini beradi.
+        2) Abstraction (Abstraktsiya) --- abstraktsiya orqali keraksiz tafsilotlarni yashiramiz yani user lar bilishi shart emas bolgan malumotlarni. 
+        3) Inheritance (Meros olish) --- Bitta klassdan boshqa klassga key  valyu larni va metodlarni o‘tqazish uchun kerak boladi.
+        4) Polymorphism (Polimorfizm) --- Bitta metod yoki funksiyaning turli obyektlarda har xil ishlashi.
+
+13. typeof ham instenceof ham biz ga tekshirish uchun kerak. Farqlari:
+    1) typeof primitive data type uchun, instenceof esa  Non-primitive malumot turlarin uchun (typeof ni Non-primitivelar uchun ham ishlatsa boladi, lekin aniq korsatmaydi, chunki object bilalan array farqiga bormaydi)
+    2) typeof string / instenceof boolean qaytaradi.
+
+14. Promise ---- asinxron operatsiyalarni boshqarish uchun ishlatiladi. U kelajakda yechim topadi yoki muvaffaqiyatsiz tugidi.Promise da 3 ta case bor. Bular:
+        1) Pending (kutish holati) – natija hali tayyor emas
+        2) Fulfilled (bajarildi) – muvaffaqiyatli bajarildi
+        3) Rejected (rad etildi) – error beradi
+
+15. Promise methods:
+    then() --- promise muvaffaqiyatli bojarganda keyin resolve qiladi.
+    catch() --- agar code error bersa, ushlashuchun.
+    all() --- barcha promise lar bilan ishlash uchun kerak boladi.
+    race() --- birinchi bo'lgan promise natijasini qaytaradi.
+    resolve() --- bu return ga oxshab ishlaydi.
+    reject() --- bu shunchaki otmen bervoradi pomisga.
+
+16. Event Loop ---– bu asinxron kodni boshqarish mexanizmi. U Call Stack va Task Queue o‘rtasida ishlaydi.
+
+17. CRUD ---- bu Create, Read, Update, Delete so‘zlarining bosh harflaridan tuzilgan asosiy ma’lumotlar bazasi operatsiyalari majmuasi.
+        C - create - post
+        R - read  -  get
+        U - update - put
+        D - delete - delete
+
+18. DOM (Document Object Model) – bu veb-sahifaning tuzilishini daraxt ko'rinishida ifodalovchi obyektlar to'plami. Brauzer dagi HTML kodni JavaScript da turib boshqarish.
+
+    DOM methods:
+
+    getElementById(id) --- id bo'yicha element ni oladi.
+    getElementByClassName(class) --- class boyicha element ni oladi.
+    innerText --- object ichidagi elementlar matnini olish yoki o'zgartirish uchun ishlatiladi.
+    innnerHTML --- bunda shunchaki text mas balki code, yoziladi va u ishlaydi.
+    createElement() – HTML elementini yaratadi, lekin hali web ga qo'shmaydi.
+    addEventListener – bu JavaScript-da events bilan ishlash uchun ishlatiladigan metod bo'lib, u HTML elementlariga event qo'shish imkonini beradi.
