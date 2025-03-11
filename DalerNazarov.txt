@@ -1,0 +1,387 @@
+Javoblar:
+
+1. Javascriptda ma'lumot turlari ikki turga bo'linadi. Bular primitive va non-primitive ma'lumot turlari.
+
+    #Farqlari:
+    1. Primitive ma'lumot turlari o'zida faqatgina bitta ma'lumot saqlay oladi, non-primitive ma'lumot turlarida esa bu teskarisi
+    2. Primite ma'lumot turlari o'zida qiymat saqlaydi, non-primitive ma'lumot turlari esa o'zlarida xotiradagi manzil (Reference Adress) saqlaydi
+    3. Primite ma'lumot turlarini nusxalaganimizda ular o'ziga qiymatni nusxalaydi, non-primitive ma'lumot turlarida esa xotiradagi manzil nusxalanadi
+
+    Primitive datatypes:                Non-Primitive datatypes:
+    -String                             -Object {}
+    -Number                             -Array []
+    -Boolean
+    -undefined
+    -null
+    -BigInt
+    -Symbol
+
+    #String - matn (harflar, so‘zlar) saqlash uchun ishlatiladi.
+    #Number - raqamlarni ifodalash uchun ishlatiladi (butun va kasr sonlarni o'z ichiga oladi).
+    #Boolean - true (rost) yoki false (yolg'on) qiymatini saqlash uchun ishlatiladi.
+    #undefined -o'zgaruvchi e'lon qilingan, lekin unga qiymat berilmagan bo‘lsa, undefined bo'ladi.
+    #null - ma'lum bir o‘zgaruvchining qiymati yo‘qligini aniq ko‘rsatish uchun ishlatiladi.
+    #BigInt - juda katta yoki juda kichik sonlar bilan ishlash uchun ishlatiladi.
+    #Symbol - har bir Symbol o‘ziga xos bo‘lib, unikal identifikator sifatida ishlatiladi.
+
+    #Object - obyekt kalit-qiymat (key-value) juftliklari ko‘rinishida bo‘ladi. U ichida ko'p ma'lumot saqlay oladi.
+    #Array - array bu massiv va u ham obyekt hisoblanadi odatda. U o'z ichida key-value saqlamaydi va u ham ko'p ma'lumotni ichida saqlay oladi
+
+    #undefined va null farqi:
+    -typeof undefined = undefined
+    -typeof null = object
+
+----------------------------------------------------------------------------------------------------------------------------------------
+2. JavaScriptda o‘zgaruvchi yaratish uchun var, let va const kalit so‘zlaridan foydalaniladi.
+
+    #Ma'nosi va qaysi so'zdan olingani:
+     1. var - variable (o'zgaruvchi)
+     2. let - let (ruxsat berish)
+     3. const - constant (o'zgarmas)
+
+    #Asosiy Farqlari:
+    1. var ishlatilganda u bilan yaratilgan o'zgaruvchini yana bir xil nom orqali chaqirishimiz va uni o'zgartirishimiz mumkin va bu uning kamchiligi hisoblanadi.
+    2. const o'zgarmas, uning qiymatini o'zgartirish mumkin emas, let va var dan farqli o'laroq.
+    3. var hoisting ga uchraydi ya'ni biz uni var orqali o'zgaruvchi yaratishdan oldin uni ishlatishimiz mumkin va u bizga undefined qiymat qaytaradi.
+        # Hoisting - bu o‘zgaruvchilar va funksiyalar e’lon qilingan qismni avtomatik ravishda kodning yuqori qismiga ko‘tarish jarayoni.
+    4.  var faqat funksiyalar ichida cheklangan bo‘ladi, ya'ni u function scopedan tashqari global scope va block scope da ishlaydi. let va const block scope ga ega, ya’ni {} qavslar ichida e’lon qilingan o‘zgaruvchilar faqat shu blok ichida ishlaydi.
+        # Scope -o‘zgaruvchilarning qayerda ishlashini va ularga qayerdan murojaat qilish mumkinligini belgilaydi.
+
+----------------------------------------------------------------------------------------------------------------------------------------
+3. JavaScriptda while va do...while sikllari bir xil maqsadga xizmat qiladi, lekin ular shartni tekshirish va bajarilish tartibi bo'yicha farq qiladi:
+
+    # while - avval shartni tekshiradi, keyin bajariladi. Agar shart boshidan noto‘g‘ri bo‘lsa, sikl hech qachon ishlamaydi.
+
+        let i = 5;
+        while (i > 0) {
+            console.log(i);
+            i--;
+        }
+
+        natija:    
+            5
+            4
+            3
+            2
+            1
+
+
+    # do while - avval kodni bajaradi, keyin shartni tekshiradi. Shart noto‘g‘ri bo‘lsa ham, kamida bir marta bajariladi.
+
+        let j = 0;
+        do {
+            console.log(j);
+            j++;
+        } while (j < 3);
+
+        natija:
+            0
+            1
+            2
+
+
+----------------------------------------------------------------------------------------------------------------------------------------
+4. JavaScriptda obyekt metodlari bu obyektlar bilan ishlash uchun maxsus funksiyalardir. Quyida eng ko‘p ishlatiladigan 5 ta obyekt metodlari:
+
+    1.  Object.keys(obj) - obyekt kalitlarini olish
+
+        const user = { name: "Ali", age: 25, country: "Uzbekistan" };
+        console.log(Object.keys(user)); 
+        // ["name", "age", "country"]
+
+    2. Object.values(obj) - obyekt qiymatlarini olish
+
+        const user = { name: "Ali", age: 25, country: "Uzbekistan" };
+        console.log(Object.values(user)); 
+        // ["Ali", 25, "Uzbekistan"]
+
+    3. Object.entries(obj) - kalit-qiymat juftligini olish
+
+        const user = { name: "Ali", age: 25 };
+        console.log(Object.entries(user)); 
+        // [["name", "Ali"], ["age", 25]]
+
+    4.  Object.assign(target, source) - obyektni nusxalash va birlashtirish
+        
+        const user = { name: "Ali", age: 25 };
+        const user = { name: "Ali" };
+        const info = { age: 25, country: "Uzbekistan" };
+        const mergedUser = Object.assign(user, info);
+        console.log(mergedUser); 
+        // { name: "Ali", age: 25, country: "Uzbekistan" }
+
+    5. Object.freeze(obj) - obyektni muzlatish (o‘zgartirib, qo'shib bo‘lmaydigan qilish)
+
+        const user = { name: "Ali", age: 25 };
+        Object.freeze(user);
+        user.age = 30;  //  O‘zgartirib bo‘lmaydi!
+        user.city = "Tashkent"; // Yangi property qo‘shib bo‘lmaydi!
+        console.log(user); 
+        // { name: "Ali", age: 25 }
+
+----------------------------------------------------------------------------------------------------------------------------------------
+5. Array metodlari:
+
+    1. push() - massivning oxiriga element qo‘shish
+
+        let fruits = ["apple", "banana"];
+        fruits.push("orange");
+        console.log(fruits); 
+        // ["apple", "banana", "orange"]
+
+    2. pop() - maasivning oxiridagi elementni olib tashlash
+
+        let fruits = ["apple", "banana", "orange"];
+        let lastFruit = fruits.pop();
+        console.log(fruits); 
+        // ["apple", "banana"]
+        console.log(lastFruit); 
+        // "orange"
+
+    3. shift() - massivning boshidan elementni olib tashlash
+
+        let fruits = ["apple", "banana", "orange"];
+        let firstFruit = fruits.shift();
+        console.log(fruits); 
+        // ["banana", "orange"]
+        console.log(firstFruit); 
+        // "apple"
+
+    4. unshift() - massivning boshiga yangi element qo‘shish
+
+        let fruits = ["banana", "orange"];
+        fruits.unshift("apple");
+        console.log(fruits); 
+        // ["apple", "banana", "orange"]
+
+    5. map() - har bir elementga funksiyani qo‘llash va yangi massiv yaratish
+
+        let numbers = [1, 2, 3];
+        let squaredNumbers = numbers.map(num => num * num);
+        console.log(squaredNumbers); 
+        // [1, 4, 9]
+
+
+    6. filter() - berilgan shartga mos keladigan elementlarni tanlab olish
+
+        let numbers = [1, 2, 3, 4, 5];
+        let evenNumbers = numbers.filter(num => num % 2 === 0);
+        console.log(evenNumbers); 
+        // [2, 4]
+
+
+    7. reduce() → massiv elementlarini yagona qiymatga aylantirish
+
+        let numbers = [1, 2, 3, 4];
+        let sum = numbers.reduce((acc, num) => acc + num, 0);
+        console.log(sum); 
+        // 10
+
+    8. sort() - massivni berilgan shart bo'yicha tartiblash
+
+        let fruits = ["banana", "apple", "orange"];
+        fruits.sort((a, b => a.length - b.length);
+        console.log(fruits); 
+        // ["apple", "banana", "orange"]
+
+    9. reverse() - massiv tartibini teskarisiga o‘zgartirish
+
+        let numbers = [1, 2, 3, 4, 5];
+        numbers.reverse();
+        console.log(numbers); 
+        // [5, 4, 3, 2, 1]
+
+
+    10. concat() - massivlarni birlashtirish
+
+        let array1 = [1, 2, 3];
+        let array2 = [4, 5, 6];
+        let mergedArray = array1.concat(array2);
+        console.log(mergedArray); 
+        // [1, 2, 3, 4, 5, 6]
+
+----------------------------------------------------------------------------------------------------------------------------------------
+6. JavaScriptda funksiya bu kod qismini qayta ishlatish uchun yozilgan maxsus blokdir. Funksiya biror kirish ma'lumotini qabul qiladi va natija qaytarishi mumkin. Funksiyalar 3 ta turga bo'linadi:
+
+    1. Function Declaration
+    2. Function Expression
+    3. Arrow Function
+
+    # Function Declaration - bu funksiyani function kalit so‘zi bilan e’lon qilamiz
+
+        function salomBer(nomi) {
+        console.log("Salom, " + nomi + "!");
+        }
+        salomBer("Ali"); // Natija: Salom, Ali!
+        salomBer("Laylo"); // Natija: Salom, Laylo!
+
+    # Function Expression - bu funksiya o‘zgaruvchiga saqlanadi va nomi bo‘lishi shart emas
+
+        const kvadrat = function (n) {
+        return n * n;
+        };
+        console.log(kvadrat(5)); // Natija: 25
+
+
+    # Arrow Function - ES6 versiyasida '=>' bilan qisqa yozish mumkin
+
+        const kvadrat = (n) => n * n;
+        console.log(kvadrat(6)); // Natija: 36
+
+    
+    # Ular o'rtasidagi farqlar:
+
+    1. Function Declaration o'zgaruvchiga olinmaydi
+    2. Function Declaration hoisting ga uchraydi, qolganlari bundan mustasno
+    3. this kalit so'zi arrow function da ishlamaydi
+
+
+----------------------------------------------------------------------------------------------------------------------------------------
+7. Pure function har doim bir xil kiritilgan qiymat uchun bir xil natija qaytaradi, tashqi omillarga bog‘liq emas va hech qanday tashqi o‘zgaruvchini o‘zgartirmaydi (side effect yo'q). Impure function esa tashqi o‘zgaruvchilarga bog‘liq bo‘lishi mumkin va chaqirilganda har safar turli natija qaytarishi yoki tashqi o‘zgaruvchilarni o'zgartirishi mumkin.
+
+
+----------------------------------------------------------------------------------------------------------------------------------------
+8. String metodlari:
+
+    1. length – string uzunligini topish.
+
+    2. toUpperCase() – matndagi barcha harflarni katta harflarga o‘tkazadi.
+
+    3. toLowerCase() – matndagi barcha harflarni kichik harfga o‘zgartiradi.
+
+    4. trim() – matnning boshi va oxiridagi bo‘sh joylarni olib tashlaydi.
+
+    5. slice (start, end) – berilgan indekslar oralig'idagi matnni kesib oladi.
+
+    6. includes(substring) – matn ichida berilgan qism mavjud yoki yo‘qligini tekshiradi.
+
+    7. substring(start, end) – matndan qism ajratib olish
+
+    8. charAt(index) – berilgan indeksdagi belgini qaytaradi.
+
+    9. concat() - stringlarni birlashtirish uchun ishlatiladi (+ operatoriga o‘xshaydi).
+
+    10. repeat(n) – matnni n marta qaytarib chiqaradi.
+
+
+----------------------------------------------------------------------------------------------------------------------------------------
+9. JavaScriptda call(), apply() va bind() metodlari funksiya kontekstini (this) o‘zgartirish uchun ishlatiladi.
+
+    1. call() metodi funksiyani darhol ishlatadi va this kontekstini o‘zgartiradi. Argumentlar vergul bilan beriladi.
+    2. apply() ham call() kabi ishlaydi, lekin argumentlarni massiv (array) shaklida oladi.
+    3. bind() this ni o‘zgartiradi, lekin funksiyani darhol chaqirmaydi. Natijada yangi funksiya qaytaradi, va keyin chaqirilishi mumkin.
+
+----------------------------------------------------------------------------------------------------------------------------------------
+10. Map va Object ikkalasi ham kalit-qiymat (key-value) juftliklarini saqlash uchun ishlatiladi.
+
+    # Ular o'rtasidagi farqlar:
+    1. Map - undagi kalitlar har qanday turdagi ma'lumot bo‘lishi mumkin, objectda esa faqat string va symbol qabul qiladi.
+    2. Map ning uzunligini topish uchun biz undagi .size metodidan foydalanamiz. Object ning uzunligini topish uchun esa biz .length metodidan foydalanamiz.
+    3. Map da elementlarni aylanib chiqish uchun biz .forEach() metodidan, Object ni aylanib chiqish uchun esa biz for ... in metodidan foydalanamiz.
+
+
+----------------------------------------------------------------------------------------------------------------------------------------
+11. OOP (Obyektga Oriented Programming) — bu dasturlash usuli bo‘lib, kodni obyektlar va klasslar yordamida tashkil qiladi. Obyektlar xususiyatlar (property) va metodlar (function) ga ega bo‘ladi. 
+
+    #Misol uchun:
+
+        class Car {
+            constructor(brand, model) {
+            this.brand = brand;
+            this.model = model;
+            }
+            start() {
+            console.log(`${this.brand} ${this.model} ishga tushdi!`);
+            }
+        }
+
+
+----------------------------------------------------------------------------------------------------------------------------------------
+12. OOP da to'rtta tamoyil mavjud: Bular Encapsulation, Inheritance, Abstraction, Polymorphism.
+
+    # Encapsulation - bu tamoyil obyektning ichki ma’lumotlarini himoyalash va faqat kerakli qismlarini ochiq qilishga asoslangan.
+    # Inheritance - bitta klassdan boshqa klassga xususiyatlarni meros qilib berish imkoniyati.
+    # Polymorphism - Har xil klasslar bir xil nomdagi metodni turlicha bajara oladi.
+    # Abstraction - Foydalanuvchiga faqat kerakli qismlarni ko‘rsatadi va keraksiz detallarni yashiradi.
+
+
+----------------------------------------------------------------------------------------------------------------------------------------
+13. typeof – ma’lumot turini tekshiradi, instanceof obyektning klassga tegishliligini tekshiradi.
+
+    # typeof:
+        console.log(typeof "Hello"); // "string"
+        console.log(typeof 42); // "number"
+        console.log(typeof true); // "boolean"
+
+    # instanceof:
+        class Animal {}
+        class Dog extends Animal {}
+        const rex = new Dog();
+        console.log(rex instanceof Dog); // true
+        console.log(rex instanceof Animal); // true
+        console.log(rex instanceof Object); // true (Hamma obyektlar Object'dan kelib chiqadi)
+        console.log(rex instanceof Array); // false
+
+
+----------------------------------------------------------------------------------------------------------------------------------------
+14. Promise — JavaScriptdagi asinxron operatsiyalarni boshqarish uchun ishlatiladigan obyekt. U kelajakda qiymat (natija) yoki xato qaytarishini bildiradi.
+
+    #Promise ning 3 holati mavjud:
+        1️. Pending (Kutilmoqda) – Yangi promise yaratilgan, lekin hali natija yo‘q.
+        2️. Fulfilled (Bajarildi) – Asinxron operatsiya muvaffaqiyatli bajarildi.
+        3. Rejected (Rad etildi) – Xatolik yuz berdi.
+
+
+----------------------------------------------------------------------------------------------------------------------------------------
+15. Promise metodlari:
+
+    1. Promise.all() – barcha promise larni parallel bajarish. Agar promiselardan atigi bittasi xatolik qaytarsa, boshqa promiselar ham ishlamaydi.
+    2. Promise.race() – eng birinchi bajarilgan promise ni qaytaradi.
+    3. Promise.any() – berilgan promise'lar ichidan birinchi muvaffaqiyatli (fulfilled) bo‘lganini qaytaradi.
+
+
+----------------------------------------------------------------------------------------------------------------------------------------
+16. Event Loop – bu JavaScript ning birinchi navbatda asosiy kodni bajarib, keyin asosiy oqimdan tashqarida (async) bo‘lgan callback funksiyalarni bajarish mexanizmi.
+JavaScript bir oqimli (single-threaded) til bo‘lib, kodni asosiy call stack da bajaradi. Agar biror kod asosiy oqimni bloklasa, boshqa kodlar bajarilmay qolishi mumkin. Event Loop esa buni oldini oladi.
+
+    #JavaScript kodining bajarilish tartibi quyidagi qismlarga bo‘linadi:
+    1. Call Stack (chaqirish steki) – oddiy synchronous (asosiy) kod shu yerda ishlaydi.
+    2. Web API (brauzer yoki Node.js API) – setTimeout, fetch, DOM events, Promise va boshqa asinxron kodlar shu yerda kutib turadi.
+    3. Callback Queue (navbat) – Web API'lar tugagach, callback'lar shu yerga joylanadi.
+    4. Microtask Queue (kichik navbat) – Promise.then(), MutationObserver, queueMicrotask() kabi vazifalar birinchi navbatda bajariladi.
+    5. Event Loop – Call Stack bo‘shagandan keyin Callback Queue yoki Microtask Queue dagi funksiyalarni Call Stack ga joylaydi.
+
+
+----------------------------------------------------------------------------------------------------------------------------------------
+17. CRUD – bu Create (Yaratish), Read (O‘qish), Update (Yangilash) va Delete (O‘chirish) operatsiyalarining qisqartmasi bo‘lib, bazalar bilan ishlashda yoki API lar yaratishda asosiy tushuncha hisoblanadi.
+
+
+----------------------------------------------------------------------------------------------------------------------------------------
+18. DOM (Document Object Model) – bu veb-sahifaning tuzilishini daraxt ko‘rinishida ifodalovchi obyektlar to‘plami. Brauzer sahifadagi HTML kodni JavaScript yordamida boshqarish, o‘zgartirish yoki o‘qish uchun DOM modeliga aylantiradi.
+
+    #Metodlar:
+    1. getElementByID() - berilgan id bo‘yicha bitta elementni topadi.
+    2. getElementsByClassName() – berilgan class nomiga ega bo‘lgan elementlar ro‘yxatini qaytaradi.
+    3. createElement() – HTML elementini yaratadi, lekin hali sahifaga qo‘shmaydi.
+    4. appendChild() – yangi yaratilgan elementni sahifaga qo‘shish uchun ishlatiladi.
+    5. removeChild() – elementni ota tugundan olib tashlaydi.
+    6. addEventListener – bu JavaScript-da hodisalar (events) bilan ishlash uchun ishlatiladigan metod bo‘lib, u HTML elementlariga hodisa qo‘shish imkonini beradi.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
