@@ -1,0 +1,133 @@
+1. JavaScriptda qanday ma'lumot turlari mavjud?
+
+JavaScriptda ikkita asosiy ma'lumot turi mavjud: 
+- **Primitive** (oddiy) turlar: `String`, `Number`, `Boolean`, `Null`, `Undefined`, `BigInt`, `Symbol`.
+- **Non-primitive** (murakkab) turlar: `Object`, `Array`, `Function`, `Date`, `RegExp`, va boshqalar.
+
+**Null vs Undefined farqi:**
+- `null` – bo'sh yoki yo‘q qiymatni ifodalaydi.
+- `undefined` – o‘zgaruvchi e’lon qilingan, lekin unga qiymat berilmagan holatni bildiradi.
+
+2. JavaScriptda qanday qilib o'zgaruvchi yaratish mumkin?
+
+JavaScriptda `var`, `let`, va `const` yordamida o‘zgaruvchilar e'lon qilinadi:
+- `var` – eski usul, funksiya scope-ga ega va hoisting qilinadi.
+- `let` – block scope-ga ega va qayta e’lon qilib bo‘lmaydi.
+- `const` – o‘zgarmas qiymat yaratish uchun ishlatiladi.
+
+**Scope va Hoisting:**
+- `var` funksiyaviy scope, `let` va `const` esa block scope.
+- `var` hoisting bo‘lganda `undefined` qiymat oladi, `let` va `const` esa ReferenceError beradi.
+
+3. while va do while o'rtasida qanday farq bor?
+
+- `while` sharti to‘g‘ri bo‘lsa, sikl bajariladi.
+- `do while` sikli kamida bir marta bajariladi, keyin shart tekshiriladi.
+
+4. Qanday object metodlarini bilasiz?
+
+Kamida 5 ta:
+- `Object.keys(obj)` – obyekt kalitlarini array ko‘rinishida qaytaradi.
+- `Object.values(obj)` – obyekt qiymatlarini array ko‘rinishida qaytaradi.
+- `Object.entries(obj)` – kalit-qiymat juftliklarini array qilib qaytaradi.
+- `Object.assign(target, source)` – obyektlarni birlashtiradi.
+- `Object.freeze(obj)` – obyektni muzlatib, o‘zgartirib bo‘lmaydigan qiladi.
+
+5. Qanday array metodlarini bilasiz?
+
+Kamida 7 ta:
+- `push()` – oxiriga element qo‘shish.
+- `pop()` – oxiridan element olish.
+- `shift()` – boshidan element olish.
+- `unshift()` – boshiga element qo‘shish.
+- `map()` – har bir elementga funksiya qo‘llash.
+- `filter()` – shartga mos keladigan elementlarni olish.
+- `reduce()` – barcha elementlarni bitta qiymatga aylantirish.
+
+6. Funksiya nima?
+
+Funksiya – qayta foydalanish mumkin bo‘lgan kod bo‘lagi.
+
+**Funksiya turlari:**
+- `Function Declaration`
+- `Function Expression`
+- `Arrow Function`
+- `Anonymous Function`
+
+7. Pure va Impure function o'rtasida qanday farq bor?
+
+- **Pure Function** – hech qanday tashqi holatga bog‘liq emas, natija har doim bir xil.
+- **Impure Function** – tashqi holatlarga bog‘liq bo‘lib, natija har doim o‘zgarishi mumkin.
+
+8. Qanday string metodlarini bilasiz?
+
+Kamida 8 ta:
+- `charAt(index)` – index bo‘yicha belgi olish.
+- `concat(str)` – qatorlarni birlashtirish.
+- `includes(substr)` – qator ichida boshqa qator bor-yo‘qligini tekshirish.
+- `indexOf(substr)` – qator ichida so‘z joylashuvini topish.
+- `replace(old, new)` – so‘zlarni almashtirish.
+- `split(separator)` – qatorni arrayga ajratish.
+- `substring(start, end)` – qatorning qismiga ajratish.
+- `toUpperCase()` – harflarni katta qilish.
+
+9. call, apply, bind nima uchun ishlatiladi va ularning farqi nimada?
+
+- `call()` – funksiyani argumentlar bilan chaqirish.
+- `apply()` – funksiyani array shaklida argument bilan chaqirish.
+- `bind()` – yangi funksiya qaytarib, `this` ni belgilaydi.
+
+10. Map va Object o'rtasida qanday farq bor?
+
+- `Map` – kalit sifatida har qanday turdagi qiymat qabul qiladi.
+- `Object` – faqat string yoki symbol kalitlarni qabul qiladi.
+
+11. OOP nima?
+
+OOP (Object-Oriented Programming) obyektlar va ularning o‘zaro aloqalariga asoslangan dasturlash paradigmasidir.
+
+12. OOP ning har bir tamoyilini tushuntirib bering.
+
+- **Encapsulation** – ma’lumotlarni yashirish va faqat kerakli qismlarini ochish.
+- **Inheritance** – kodni qayta ishlatish uchun klasslar yaratish.
+- **Polymorphism** – bir xil metodni har xil sinflarda ishlatish.
+- **Abstraction** – murakkablikni yashirib, faqat muhim qismlarni ko‘rsatish.
+
+13. typeof va instanceof o'rtasida qanday farq bor?
+
+- `typeof` – primitiv turlar uchun ishlatiladi (`string`, `number`, `boolean`).
+- `instanceof` – obyekt biror klassga tegishli ekanligini tekshiradi.
+
+14. Promise nima?
+
+Promise – asinxron operatsiyalar natijasini ifodalovchi obyekt.
+
+15. Promise ning kamida 3ta metodini tushuntirib bering.
+
+- `then()` – muvaffaqiyatli bajarilganda ishlaydi.
+- `catch()` – xatolik yuz berganda ishlaydi.
+- `finally()` – har doim ishlaydi.
+
+16. Event loop nima?
+
+Event Loop – JavaScript’ning asinxron mexanizmi, `call stack` va `task queue` orqali kodni boshqaradi.
+
+17. CRUD nima? (fetch va axios ga aloqador savollar ham beriladi.)
+
+CRUD – ma’lumotlar bazasi bilan ishlash prinsiplari:
+- **Create** (yaratish)
+- **Read** (o‘qish)
+- **Update** (yangilash)
+- **Delete** (o‘chirish)
+
+18. DOM nima? Kamida 5ta event turini sanab bering.
+
+DOM (Document Object Model) – HTML sahifasini JavaScript yordamida boshqarish modeli.
+
+Kamida 5ta event turi:
+- `click`
+- `mouseover`
+- `keydown`
+- `submit`
+- `change`
+
