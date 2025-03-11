@@ -1,0 +1,163 @@
+//1  Javascriptda ma'lumot turlari ikki turga bo'lingan bu Primitive va Non
+// Primitive.
+//  1 - String har doim "" ichida yoziladi shunchaki tekst console.log("John Smith")
+//  2 - Number - son, raqamlar console.log(19), console.log(100000), console.log("19" - Number emas String)
+//  3 - Boolean - true, false 
+//  4 - null - yo'q degani 
+//  5 - undefined - bor, lekin topilmayapti 
+//  6 - BigInt - katta sonlar (12345678901234567890n)
+//  7 - Symbol - Symbol('id')
+// typeof operatori orqali ma'lumot turini aniqlash mumkin.
+// Null - bo'sh qiymat.
+// Undefined - o'zgaruvchi qiymat berilmagan bo'lsa, chiqadi.
+// Null bilan undefinedni farqi
+// Null bu bo'sh qiymat, va u object undefined esa undefined malumot turi aniqlanmagan yoki
+// topilmagan scope sabablariga kora 
+// BigInt - katta sonlar uchun ishlatiladi.
+// Symbol - takrorlanmas qiymat.
+// Non-Primitive (Reference).
+//Object - murakkab ma'lumot turi, key va value shaklida.
+//Array - qiymatlarni ketma-ket saqlash uchun.
+
+//2 Javascriptda o'zaruvchi yaratishni 3 xil turi mavjud bular:
+// VAR
+// LET
+// CONST
+// VAR - Variable - O'zzgaruvchi
+//     JSDA o'zgaruvchilar e'lon qilish eng eski yo'li. ES2015 versiyagacha yagona keyward hisoblangan.
+//     Biz var bilan yaratilgan o'zgaruvchilarga xohlagan turdagi ma'lumotlarni biriktirishimiz va
+//     o'sha ma'lumotni xoxlaganimizcha o'zgartirishimiz mumkin
+// LET - Ruxsat berish
+//     Qiymatini qayta belgilash mumkin, lekin qayta e'lon qilib bo'lmaydi 
+// CONST - Constant
+//     Qiymatini o'zgartirish yoki qayta e'lon qilish mumkin emas 
+// VAR LET CONST FARQLARI
+//     1: Bir xil nomli 2 va undan ortiq o'zgaruvchilarni faqat var bilan yaratish mumkin! 
+//     2: Const bilan yaratilan o'zgaruvchilar qiymati o'zgarmas 
+//     3: Scoping da Block scopedan faqat var chiqa ochiladi
+//     4: Hoistingda ham agar var bilan berilgan bo'lsa undefined turadi qoganlarida error beradi 
+
+//3) while: Shart bajarilganda sikl ichidagi kod ishlaydi. 
+//   do while: Kod avval bitta marta ishlaydi, keyin shart tekshiriladi.
+//Farqi: do while da kod shart to'g'ri bo'lmasa ham kamida bir marta bajariladi. 
+
+//4)  Object metodlari:
+// Object.keys(obj) - Ob'ektning barcha kalitlarini qaytaradi.
+// Object.values(obj) - Ob'ektning barcha qiymatlarini qaytaradi.
+// Object.entries(obj) - Kalit-qiymat juftlarini array shaklida qaytaradi.
+// Object.assign(target, source) - Ob'ektlarni birlashtiradi. 
+// Object.freeze(obj) - Ob'ektni o'zgarmas holatga keltiradi.
+
+//5) Qanday Array Metodlarini bilasiz
+// push() Elementni oxiriga qo'shadi.
+// pop()Oxirgi elementni olib tashlaydi.
+// shift() Birinchi elementni olib tashlaydi. 
+// unshift() Boshlanishiga element qo'shadi.
+// map() Har bir elementga amal bajaradi
+// filter() Shartga mos elementlarni qaytaradi. 
+// reduce() Hammasini bitta qiymatga birlashtiradi.
+
+//6) Funksiya - bu bir yoki bir nechta amal bajaruvchi kod bloki. 
+// 3 xil function yaratish usuli bor bu 
+// Function declaration
+// Function expression
+// Arrow function
+
+//7) PURE va IMPURE Funksiyalar
+// Toza va toza emas
+// PURE Funksiya Har doim bir xil natija qaytaradi
+// IMPURE Funksiya: Natijasi static emas xar xil chiqishi mumkin
+
+//8) String metodlari
+// charAt(index) Belgini qaytaradi. 
+// concat() Satrlarga qo'shadi. 
+// includes() Substringni tekshiradi. 
+// indexOf() Substringning birinchi indeksini qaytaradi. 
+// slice() Satrdan qism kesib oladi. 
+// toLowerCase() Kichik harfga o'tkazadi.
+// toUpperCase() Katta harfga o'tkazadi.
+// trim() Bo'sh joylarni olib tashlaydi.
+
+//9 CALL
+//   APPLY
+//   BIND
+// Qaysidir funksiyani qaysidir obyektga biriktirib olishimiz uchun ishlatamiz
+// Bularni funksiya "metodlari" dib hisoblasak boladi 
+// Farqlari:
+// call: Funksiyani darhol chaqiradi va argumentlarni vergul bilan beradi.
+// apply:Funksiyani darhol chaqiradi va argumentlarni massivda beradi. 
+// bind: Funksiyani chaqirmasdan, bog'langan yangi funksiya qaytaradi. 
+
+//10 Map va Object ortasida qanday farq bor?
+// Map: Kalitlar har qanday turda bo'lishi mumkin.
+// Object: Faqat satr yoki Symbol kalitlarga ega.
+// Map: Elementlarning tartibi saqlanadi. 
+// Object: Tartib kafolatlanmagan. 
+
+//11 Object Oriented Programming
+//Obyekt ustiga qurilgan (moslashitirilgan)dastrulash
+
+//12 OOP 4 ta asosiy tamoyilga asoslanadi:
+//1. Encapsulation (Inkaptsulyatsiya)
+//Encapsulation - obyektning ma'lumotlarini va xatti-harakatlarini yashirish va
+//faqat kerakli joylardan ularga kirishni ta’minlash tamoyili.
+//2. Inheritance (Merosxo‘rlik)
+//Inheritance - mavjud klassdan yangi klass yaratish va unga avlod klasslar 
+//(child classes) orqali xususiyat va metodlarni meros qilib olish imkoniyati.
+//3. Polymorphism (Polimorfizm)
+//Polymorphism - bir xil metodni turli klasslarda har xil bajarilishi.
+//4. Abstraction (Abstraktsiya)
+//Abstraction - foydalanuvchiga faqat kerakli funksiyalarni ko‘rsatish va ortiqcha tafsilotlarni yashirish.
+//JavaScriptda to‘g‘ridan-to‘g‘ri abstrakt klass tushunchasi yo‘q,
+//lekin constructor ichida xato yaratish orqali buni ta’minlash mumkin
+
+//13 typeof malumot turini aniqlaydi instance of esa obyekt class orqali yaratilganmi yoqmi
+//shuni aniqlaydi
+
+//14 Promise
+//Promise – JavaScript'dagi asinxron operatsiyalar (masalan, serverga so‘rov, fayl yuklash, 
+//vaqtdan keyin bajariladigan kod) bilan ishlash uchun mo‘ljallangan obyekt.
+//U kelajakda ma'lum bir vaqtda bajariladigan yoki bajarilmaydigan kodni ifodalaydi.
+
+//15 Promisening kamida 3 ta metodi
+// 1. Promise.all() – Barcha Promise'lar bajarilishini kutadi
+//Promise.all() bir nechta Promise larni qabul qiladi va ularning hammasi bajarilgandan keyin natija qaytaradi.
+//Agar bittasi xato bersa, butun Promise.all() rad qilinadi (reject).
+
+// 2. Promise.race() – Eng tez bajarilgan Promise'ni qaytaradi
+//Promise.race() massiv ichidagi Promise'lar ichida birinchi bajarilgan natijani qaytaradi. 
+//Qolganlar e'tiborga olinmaydi.
+
+// 3. Promise.any() – Birinchi muvaffaqiyatli bajarlangan Promise'ni qaytaradi
+//Promise.any() massiv ichidagi birinchi muvaffaqiyatli (resolve) bajarilgan Promise'ni qaytaradi.
+//Agar hamma Promise reject bo‘lsa, u holda AggregateError xatosi qaytariladi.
+
+//16 Event Loop
+//Event-Loop JavaScript-ni asinxron vazifalarni samarali bajarishini ta'minlaydi. Bu JavaScript-ning
+//single-threaded bo'lishiga qaramay, bloklanmasdan bajarishga imkon beradi.
+//Event loop JavaScript-dagi mexanizm bo'lib, kod bajarilishini, hodisalarni qayta ishlashni va
+//asinxron vazifalarni bajarishni boshqaradi. Bu JavaScript-ni single-threaded bo'lishiga imkon beradi, lekin
+//shunga qaramay asinxron operatsiyalarni samarali bajaradi.
+
+//17 CRUD 
+//CRUD — bu Create, Read, Update, Delete so‘zlarining qisqartmasi bo‘lib, ma'lumotlar bazasi yoki veb-ilovalar bilan ishlashning asosiy operatsiyalarini ifodalaydi. CRUD ko‘pincha REST API, SQL, va backend dasturlash bilan bog‘liq.
+
+//CRUD'ning asosiy operatsiyalari
+//C - Create	POST	INSERT INTO	Yangi ma'lumot qo‘shish
+//R - Read	GET	SELECT	Ma'lumotni o‘qish yoki olish
+//U - Update	PUT / PATCH	UPDATE	Ma'lumotni o‘zgartirish
+//D - Delete	DELETE	DELETE	Ma'lumotni o‘chirish
+
+//18 DOM
+//DOM (Document Object Model) — bu veb-sahifaning tuzilishini daraxt shaklida ko‘rib chiqish imkonini beruvchi model.
+//HTML sahifa yuklanganda, brauzer uni DOM daraxti sifatida yaratadi.
+//JavaScript orqali DOM elementlarini o‘zgartirish, qo‘shish yoki o‘chirish mumkin.
+//1. click hodisasi (Tugmani bosganda rang o‘zgaradi)
+//2. mouseover hodisasi (Sichqoncha ustiga kelganda rangi o‘zgaradi)
+//3. keydown hodisasi (Tugma bosilganda matn chiqadi)
+//4. submit hodisasi (Formani jo‘natishdan oldin tekshirish)
+//5. DOMContentLoaded hodisasi (Sahifa yuklanganda ishlaydi)
+
+
+
+                    
