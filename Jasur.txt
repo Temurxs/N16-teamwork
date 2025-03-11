@@ -1,0 +1,70 @@
+1. JavaScript da 8 malumot turlari mavjud
+    String
+    Number
+    Bigint
+    Boolean
+    Undefined
+    Null
+    Symbol
+    Object
+
+2. JavaScript da 3 xil usul bilan o'zgaruvchi ochish mumkin:
+    1) var
+    2) let
+    3) const
+
+3. while birinchi shartni tekshiradi, mos kelgandan keyin ishga tushadi.
+    do... while esa, brinchi ishlaydi keyin shartni tekshiradi. (hech bolmaganda bir marta ishga tushadi)
+
+4. Object methods:
+    assign (target, source) --- ikkita objectlarni bir biriga ulashda yordam beradi.
+    keys (object) --- object key larini alohida array ga olib chiqaradi.
+    values (object) --- object valyu larini alohida array ga olib chiqaradi.
+    freeze (obj) --- bu method object ni muzlatadi, ustida amal bajarishga, qo'shishga va o'chirishga ruxsat bermaydi.
+    seal (obj) --- ustida amal qilsa boladi, lekin qo'shib va o'chirib bolmaydi.
+
+5. Array methods:
+    pop() --- array orqasidagi brinchi elementni olib tashlaydi.
+    push() --- array orqasidan qo'shadi.
+    shift() --- array dagi brinchi elementni ochiradi.
+    unshift() --- array boshidan bitta element qo'shadi.
+    map() --- berilgan shartga kora amal bajarib, o'sha array ni qaytaradi.
+    length --- array ichida nechta element borligin ko'rsatadi.
+    reverse() --- arrayni teskari qilib qaytaradi.
+    join() --- arrayga qo'shadi.
+    reduce() --- bunda acc bilan curr keladi, va arrayni qisqartirgan holda hisoblashga yordam beradi (misol uchun: bir biriga qo'shganda)
+    some() --- agar birortaham element shartga jaob bersa, true qaytaradi, aks holda false.
+    every() --- array dagi barcha element shartga t'g'ri kelsa true, aks holda false.
+
+6. funksiya ---- bu malum bir vazifani bajaradigan va qayta qayta ishlatsa boladigan kod blogidir. 
+    Asosiy 3 ta function bor:
+
+    function declaration --- bu function hosting ga uchrashi bilan sjralib turadi.
+    function expression --- Anonymous Function deb ham ataladi.
+    arrow function --- agar kod bir qatorda bolsa, return qilish shart bo'lmaydi.
+
+7. Pure function --- hardoim bir xil input ga birxil out output qaytaradi.
+    Impure function --- bir cil input ga har xil output qaytarishi mumkin.
+
+8. String methods:
+    split("") --- string ichidagi harbir harifni ajratib, alohida string qaytaradi.
+    indexOf("") --- nechanchi indexda turganini qaytaradi.
+    charCodeAt() --- ASCI Table da gi raqamini qaytaradi.
+    trim() --- oldidagi va orqadagi bosh joylarni o'chiradi.
+    concat() --- birnecha string larni bir biriga ulashda ishlatilinadi.
+    replace() --- qavs ichiga string da sozlar beriladi, o'zgartirish uchun.
+    toUpperCase() --- string ichidagi barcha harflarni KATTA harflarga ozgartiradi.
+    toLowerCase() --- string ichidagi barcha harflarni kichik harflarga ozgartiradi.
+
+9. call, apply, bind ---- function ni object ga ulash uchun ishlatiladi.
+    call --- shunchaki "string"  ichida yoziladi.
+    apply --- [array] ga olinadi
+    bind --- function qaytaradi shuning uchun oxirida () yozish kerak boladi, yoki oxirida unixam boshqa function larga oxshab ishlatvorishga tori keladi.
+
+10. Agar faqat oddiy kalit va qiymatlar kerak bolsa, yani string yoki symbol bunda Object yertarli boladi.
+    Agar ko'p turdagi ma'lumotlar kerak bo'lsa, bunda Map ishlatiladi.
+        Asosiy farqlari:
+            1) Object da key faqat string va symbol oladi --- map da num, obj, function, array va yana boshqa turdagi malumot turlarin oladi.
+            2) Object odatda Map dan sekinroq ishlaydi.
+
+ 
