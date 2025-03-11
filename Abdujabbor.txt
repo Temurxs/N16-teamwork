@@ -1,0 +1,163 @@
+Birinchi savolga javob: JavaScriptda ma'lumot turlari ikki asosiy toifaga bo'linadi: primitive va non-primitive.
+
+Primitive turdagi ma'lumotlar: string, number, boolean, null, undefined, bigint, symbol. Bular o'zgarmas qiymatlar bo'lib, o'zgartirilganda yangi qiymat yaratiladi.
+
+Non-primitive turdagi ma'lumotlar: object, array, function, map, set va boshqalar. Bular obyekt turi bo'lib, o'zgaruvchan qiymatlarga ega.
+
+let num = 42; // number
+let str = "Hello"; // string
+let isActive = true; // boolean
+let data = null; // null
+let obj = { name: "John" }; // object
+let arr = [1, 2, 3]; // array
+
+Ikkinchi savolga javob: JavaScriptda o'zgaruvchi yaratish uchun var, let, va const kalit so'zlari ishlatiladi:
+
+var: funksiyaning butun doirasida (scope) mavjud bo'ladi va qayta e'lon qilinishi mumkin.
+
+let: faqat blok (blok scope) doirasida ishlaydi va qayta e'lon qilib bo'lmaydi.
+
+const: qiymati o'zgarmas bo'lib, faqat bir marta e'lon qilinadi.
+
+var x = 10;
+let y = 20;
+const z = 30;
+y = 25; // let o'zgaruvchisini o'zgartirish mumkin
+// z = 35; // Xatolik! const qiymati o'zgartirilmaydi
+
+Uchinchi savolga javob: while va do while sikllari o'rtasidagi farq quyidagicha:
+
+while tsikli oldin shartni tekshiradi, agar u true bo'lsa, kod bajariladi.
+
+do while tsikli esa avval kodni bajaradi, keyin shartni tekshiradi.
+
+let i = 0;
+while (i < 3) {
+    console.log(i);
+    i++;
+}
+
+let j = 0;
+do {
+    console.log(j);
+    j++;
+} while (j < 3);
+
+To'rtinchi savolga javob: Object metodlari:
+
+Object.keys(obj): Obyekt kalitlarini qaytaradi.
+
+Object.values(obj): Obyekt qiymatlarini qaytaradi.
+
+Object.entries(obj): Kalit-qiymat juftliklarini qaytaradi.
+
+Object.assign(target, source): Obyektlarni birlashtirish.
+
+Object.freeze(obj): Obyektni muzlatib, o'zgartirishni oldini oladi.
+
+Beshinchi savolga javob: Array metodlari:
+
+push(), pop(), shift(), unshift(), map(), filter(), reduce().
+
+Oltinchi savolga javob: Funksiya bu bir nechta kod blokini bajaruvchi konstruktsiya.
+
+Deklaratsiya: function name() {}
+
+Ifoda: const name = function() {}
+
+Arrow: const name = () => {}
+
+Ettinchi savolga javob: Pure va Impure function farqi:
+
+Pure: Tashqi holatga ta’sir qilmaydi.
+
+Impure: Tashqi holatni o'zgartirishi mumkin.
+
+Sakkizinchi savolga javob: String metodlari:
+
+toUpperCase(), toLowerCase(), trim(), slice(), split(), replace(), includes(), concat().
+
+To'qqizinchi savolga javob: call, apply, bind metodlari:
+
+call(): Funksiyani chaqiradi va argumentlarni alohida beradi.
+
+apply(): Funksiyani chaqiradi va argumentlarni massiv sifatida beradi.
+
+bind(): Yangi funksiya yaratadi.
+
+O'ninchi savolga javob: Map va Object farqi:
+
+Map tartibni saqlaydi, har qanday turdagi kalitlar ishlatishi mumkin.
+
+Object esa faqat string va symbol kalitlarga ega bo'lishi mumkin.
+
+O'n birinchi savolga javob: OOP nima?
+
+Obyektga yo'naltirilgan dasturlash paradigmasi bo'lib, asosiy tamoyillari:
+
+Encapsulation, Inheritance, Polymorphism, Abstraction.
+
+O'n ikkinchi savolga javob: typeof va instanceof farqi:
+
+typeof ma'lumot turini qaytaradi.
+
+instanceof esa obyektning qaysi sinfga tegishli ekanligini tekshiradi.
+
+O'n uchinchi savolga javob: Promise nima?
+
+Asinxron operatsiyalarni bajaruvchi obyekt.
+
+Holatlari: pending, fulfilled, rejected.
+
+O'n to'rtinchi savolga javob: Promise metodlari:
+
+then(), catch(), finally().
+
+O'n beshinchi savolga javob: Event loop nima?
+
+JavaScriptdagi asinxron bajarilish jarayoni.
+
+O'n oltinchi savolga javob: CRUD nima?
+
+Create, Read, Update, Delete operatsiyalarining jamlanmasi.
+
+O'n yettinchi savolga javob: DOM nima?
+
+HTML sahifasining daraxt tuzilmasi.
+
+5 ta event: click, mouseover, keydown, load, scroll.
+
+O'n sakkizinchi savolga javob: 
+
+DOM (Document Object Model) da turli hodisalar (events) mavjud. Kamida 5 ta turini sanab o'taman:
+
+Mouse Events (Sichqoncha hodisalari)
+
+click – element bosilganda
+dblclick – ikki marta bosilganda
+mousedown – tugma bosilganda
+mouseup – tugma qo‘yib yuborilganda
+mousemove – sichqoncha harakat qilganda
+Keyboard Events (Klaviatura hodisalari)
+
+keydown – tugma bosilganda
+keyup – tugma qo‘yib yuborilganda
+keypress – tugma bosilganda (eskirgan)
+Form Events (Forma hodisalari)
+
+submit – forma yuborilganda
+input – kiritish maydoni o‘zgarganda
+change – element qiymati o‘zgarganda
+focus – elementga e'tibor qaratilganda
+blur – elementdan e'tibor olib tashlanganda
+Window Events (Oyna hodisalari)
+
+load – sahifa yuklanganda
+resize – oyna o‘lchami o‘zgarganda
+scroll – sahifa skroll qilinganda
+unload – foydalanuvchi sahifadan chiqib ketayotganda
+Clipboard Events (Nusxalash va qo‘yish hodisalari)
+
+copy – foydalanuvchi nusxa olayotganda
+cut – foydalanuvchi kesayotganda
+paste – foydalanuvchi matn qo‘yayotganda
